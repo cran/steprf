@@ -1,0 +1,52 @@
+#' @title Extract names of the selected predictive variables by steprf
+#'
+#' @description This function is to extract names of the selected predictive variables by steprfAVI.
+#'
+#' @param steprf1 a list of output of 'steprf' function.
+#' @param trainx a dataframe or matrix contains columns of predictor variables.
+#'
+#' @return A list with the following components:
+#' 1) variables.most.accurate: a list of predictive variables contained in the
+#'  most accurate RF model,  2) PABV: a list of predictive variables with positive
+#'   contributions to the predictive accuracy of RF models, that is,
+#'    predictive accuracy boosting variable (PABV), 3) PARV: a list of
+#'    predictive variables with negative contributions to the predictive
+#'    accuracy of RF models, that is, predictive accuracy reducing variable,
+#'    and 4) max.predictive.accuracy: the predictive accuracy of the most
+#'    accurate RF model.
+#'
+#' @references Li, J. (2019). "A critical review of spatial predictive modeling
+#' process in environmental sciences with reproducible examples in R." Applied
+#' Sciences 9: 2048.
+#'
+#' Li, J., Siwabessy, J., Huang, Z., and Nichol, S. (2019). "Developing an
+#' optimal spatial predictive model for seabed sand content using machine
+#' learning, geostatistics and their hybrid methods." Geosciences 9 (4):180.
+#'
+#' @author Jin Li
+#' @examples
+#' \donttest{
+#' library(spm)
+#' data(petrel)
+#' set.seed(1234)
+#' steprf1 <- steprfAVI(trainx = petrel[, c(1,2, 6:9)], trainy = petrel[, 5],
+#'  nsim = 10, min.n.var = 2)
+#'
+#' steprfAVIPredictors(steprf1, trainx = petrel[, c(1,2, 6:9)])
+#' }
+#'
+#' @export
+steprfAVIPredictors <- function (steprf1, trainx) {
+  steprf1 <- steprf1
+  trainx <- trainx
+  predacc <- colMeans(steprf1$predictive.accuracy2)
+  maxn <- which(predacc == max(predacc), arr.ind = T )
+  steprfPredictors <- setdiff(names(trainx), steprf1$variable.removed[(1:maxn)])
+
+  delta.acc <- steprf1$delta.accuracy
+  negative.n <- which(delta.acc <= 0, arr.ind = T )
+  positivePredictors <- setdiff(names(trainx), steprf1$variable.removed[negative.n])
+  negativePredictors <- steprf1$variable.removed[negative.n]
+  max.predacc <- max(predacc)
+  list(variables.most.accurate = steprfPredictors, PABV = positivePredictors, PARV = negativePredictors, max.predictive.accuracy = max.predacc)
+}
