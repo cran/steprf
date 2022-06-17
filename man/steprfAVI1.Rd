@@ -100,7 +100,6 @@ par (font.axis=2, font.lab=2)
 barplot(steprfAVI1.1$delta.accuracy, col = (1:length(steprfAVI1.1$variable.removed)),
 names.arg = steprfAVI1.1$variable.removed,   main = "Predictive accuracy vs variable removed",
 font.main = 4, cex.names=1, font=2, ylab="Increase in VEcv (\%)")
-dev.off()
 }
 
 }

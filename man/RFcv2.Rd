@@ -79,7 +79,7 @@ n <- 10 # number of iterations, 60 to 100 is recommended.
 measures <- NULL
 for (i in 1:n) {
 rfcv1 <- RFcv2(hard[, c(4:6)], hard[, 17], predacc = "ccr")
-measures <- rbind(measures, rfcv1$ccr)
+measures <- rbind(measures, rfcv1)
 }
 plot(measures ~ c(1:n), xlab = "Iteration for RF", ylab = "Correct
 classification Rate  (\%)")

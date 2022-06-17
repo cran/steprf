@@ -67,7 +67,7 @@
 #' measures <- NULL
 #' for (i in 1:n) {
 #' rfcv1 <- RFcv2(hard[, c(4:6)], hard[, 17], predacc = "ccr")
-#' measures <- rbind(measures, rfcv1$ccr)
+#' measures <- rbind(measures, rfcv1)
 #' }
 #' plot(measures ~ c(1:n), xlab = "Iteration for RF", ylab = "Correct
 #' classification Rate  (%)")
@@ -83,9 +83,13 @@ RFcv2 <- function (trainx, trainy, cv.fold = 10, mtry = if (!is.null(trainy) &&
   n <- nrow(trainx)
   if (classRF) {
     f <- trainy
-  }     else {
+  } else {if (dim(table(trainy)) <= 4) {
+    f <- trainy
+      } else {
     f <- cut(trainy, c(-Inf, stats::quantile(trainy, 1:4/5), Inf))
+    }
   }
+
   nlvl <- table(f)
   idx <- numeric(n)
   for (i in 1:length(nlvl)) {
