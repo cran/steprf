@@ -94,6 +94,9 @@ font.main = 4, cex.names=1, font=2, ylab="Increase in VEcv (\%)")
 
 }
 \references{
+Li, J. (2022). Spatial Predictive Modeling with R. Boca Raton,
+Chapman and Hall/CRC.
+
 Li, J. 2013. Predicting the spatial distribution of seabed
 gravel content using random forest, spatial interpolation methods and
 their hybrid methods. Pages 394-400  The International Congress on

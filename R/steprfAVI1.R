@@ -36,7 +36,10 @@
 #' predictive accuracy matrix of the model after excluding variable.removed for
 #' each iteration (predictive.accuracy2)
 #'
-#' @references Li, J. 2013. Predicting the spatial distribution of seabed
+#' @references Li, J. (2022). Spatial Predictive Modeling with R. Boca Raton,
+#' Chapman and Hall/CRC.
+#'
+#' Li, J. 2013. Predicting the spatial distribution of seabed
 #' gravel content using random forest, spatial interpolation methods and
 #' their hybrid methods. Pages 394-400  The International Congress on Modelling
 #'  and Simulation (MODSIM) 2013, Adelaide.
@@ -88,8 +91,6 @@
 #' names.arg = steprfAVI1.1$variable.removed, main = "Predictive accuracy vs variable removed",
 #' font.main = 4, cex.names=1, font=2, ylab="Increase rate in VEcv (%)")
 #'
-#' tiff("Fig 1.tif", width=8, height=8, units='in', res=300, compression="lzw")
-#' par (font.axis=2, font.lab=2)
 #' barplot(steprfAVI1.1$delta.accuracy, col = (1:length(steprfAVI1.1$variable.removed)),
 #' names.arg = steprfAVI1.1$variable.removed,   main = "Predictive accuracy vs variable removed",
 #' font.main = 4, cex.names=1, font=2, ylab="Increase in VEcv (%)")

@@ -38,6 +38,9 @@ steprfAVIPredictors(steprf1, trainx = petrel[, c(1,2, 6:9)])
 
 }
 \references{
+Li, J. (2022). Spatial Predictive Modeling with R. Boca Raton,
+Chapman and Hall/CRC.
+
 Li, J. (2019). "A critical review of spatial predictive modeling
 process in environmental sciences with reproducible examples in R." Applied
 Sciences 9: 2048.

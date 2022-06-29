@@ -15,7 +15,10 @@
 #'    and 4) max.predictive.accuracy: the predictive accuracy of the most
 #'    accurate RF model.
 #'
-#' @references Li, J. (2019). "A critical review of spatial predictive modeling
+#' @references Li, J. (2022). Spatial Predictive Modeling with R. Boca Raton,
+#' Chapman and Hall/CRC.
+#'
+#' Li, J. (2019). "A critical review of spatial predictive modeling
 #' process in environmental sciences with reproducible examples in R." Applied
 #' Sciences 9: 2048.
 #'

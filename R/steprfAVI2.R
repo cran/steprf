@@ -34,7 +34,10 @@
 #'   predictive.accuracy2: predictive accuracy matrix of the model after
 #'    excluding the variable.removed for each iteration.
 #'
-#' @references Li, J. 2013. Predicting the spatial distribution of seabed
+#' @references Li, J. (2022). Spatial Predictive Modeling with R. Boca Raton,
+#' Chapman and Hall/CRC.
+#'
+#' Li, J. 2013. Predicting the spatial distribution of seabed
 #' gravel content using random forest, spatial interpolation methods and
 #' their hybrid methods. Pages 394-400  The International Congress on
 #' Modelling and Simulation (MODSIM) 2013, Adelaide.
